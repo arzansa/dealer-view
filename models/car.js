@@ -17,6 +17,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  price: {
+    type: String,
+    required: true,
+  },
 });
 
 const User = mongoose.model("Car", carSchema);
