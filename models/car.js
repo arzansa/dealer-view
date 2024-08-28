@@ -30,7 +30,7 @@ const carSchema = new mongoose.Schema({
   },
   features: [featureSchema],
   addedBy: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
 });

@@ -1,0 +1,11 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Add a New Item</h1>
+<form action="/users/<%= user._id %>/foods" method="POST">
+  <label for="name">Food Name:</label>
+  <input type="text" name="name" id="name" />
+  <button type="submit">Add Food</button>
+</form>
+<a href="/users/<%= user._id %>/foods">Back to Your Pantry</a>
+
+<%- include('../partials/footer.ejs') %>
