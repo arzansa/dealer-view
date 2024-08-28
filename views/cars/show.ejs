@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs') %>
+
+<h1><%= car.make %> <%= car.model %> (<%= car.year %>)</h1>
+<p>Added By: <%= car.addedBy.email %></p>
+
+<h2>Car Details:</h2>
+<ul>
+  <li>Make: <%= car.make %></li>
+  <li>Model: <%= car.model %></li>
+  <li>Year: <%= car.year %></li>
+  <li>Color: <%= car.color %></li>
+  <li>Price: <%= car.price %></li>
+</ul>
+
+<% if (car.features.length) { %>
+  <h2>Features:</h2>
+  <ul>
+    <% car.features.forEach((feature) => { %>
+    <li><%= feature.name %></li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No features listed.</p>
+<% } %>
+
+<% if (car.image) { %>
+  <h2>Car Image:</h2>
+  <img src="/<%= car.image %>" alt="<%= car.make %> <%= car.model %>" width="400">
+<% } else { %>
+  <p>No image available for this car.</p>
+<% } %>
+
+<a href="/cars">Back to All Cars</a>
+
+<%- include('../partials/footer.ejs') %>

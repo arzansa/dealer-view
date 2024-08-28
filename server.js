@@ -27,6 +27,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use('/uploads', express.static('uploads'));
 
 // Require the middleware that adds the user doc to the req & the res.locals objects
 const addUserToReqAndLocals = require('./middleware/addUserToReqAndLocals');

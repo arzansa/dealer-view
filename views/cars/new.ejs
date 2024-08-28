@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs') %>
 
 <h1>Add a New Vehicle</h1>
-<form action="/cars" method="POST">
+<form action="/cars" method="POST" enctype="multipart/form-data">
   <label for="make">Make:</label>
   <input type="text" name="make" id="make" required />
 
@@ -24,7 +24,5 @@
 
   <button type="submit">Add Car</button>
 </form>
-
-<!-- <a href="/users/<%= user._id %>/foods">Back to Your Pantry</a> -->
 
 <%- include('../partials/footer.ejs') %>
