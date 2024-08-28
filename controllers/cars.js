@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
 
 // GET /cars/new
 router.get('/new', ensureLoggedIn, (req, res) => {
-  res.send('Yay, you were logged in!');
+  res.render("cars/new.ejs");
 });
 
 module.exports = router;

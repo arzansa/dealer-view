@@ -1,11 +1,30 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Add a New Item</h1>
-<form action="/users/<%= user._id %>/foods" method="POST">
-  <label for="name">Food Name:</label>
-  <input type="text" name="name" id="name" />
-  <button type="submit">Add Food</button>
+<h1>Add a New Vehicle</h1>
+<form action="/users/<%= user._id %>/cars" method="POST">
+  <label for="make">Make:</label>
+  <input type="text" name="make" id="make" required />
+
+  <label for="model">Model:</label>
+  <input type="text" name="model" id="model" required />
+
+  <label for="year">Year:</label>
+  <input type="text" name="year" id="year" required />
+
+  <label for="color">Color:</label>
+  <input type="text" name="color" id="color" required />
+
+  <label for="price">Price:</label>
+  <input type="text" name="price" id="price" required />
+
+  <label for="image">Car Image:</label>
+  <input type="file" name="image" id="image" accept="image/*" />
+
+  <input type="hidden" name="addedBy" value="<%= user._id %>" />
+
+  <button type="submit">Add Car</button>
 </form>
-<a href="/users/<%= user._id %>/foods">Back to Your Pantry</a>
+
+<!-- <a href="/users/<%= user._id %>/foods">Back to Your Pantry</a> -->
 
 <%- include('../partials/footer.ejs') %>

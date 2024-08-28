@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const featureSchema = new mongoose.Schema({
-  test: {
+  text: {
     type: String,
     required: true,
   }
@@ -33,6 +33,10 @@ const carSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
+  image: {
+    type: String,
+    required: false,
+  }
 });
 
 const Car = mongoose.model("Car", carSchema);
