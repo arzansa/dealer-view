@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const featureSchema = new mongoose.Schema({
+  test: {
+    type: String,
+    required: true,
+  }
+});
+
+const carSchema = new mongoose.Schema({
   make: {
     type: String,
     required: true,
@@ -21,8 +28,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  features: [featureSchema],
+  addedBy: {
+    type: String,
+    required: true,
+  },
 });
 
-const User = mongoose.model("Car", carSchema);
+const Car = mongoose.model("Car", carSchema);
 
 module.exports = Car;
