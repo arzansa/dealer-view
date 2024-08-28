@@ -23,9 +23,9 @@ router.post("/", async (req, res) => {
       year: req.body.year,
       color: req.body.color,
       price: req.body.price,
-      features: req.body.features, // Assuming features are sent as an array in the request body
-      addedBy: req.session.user._id, // Assuming the user's ID is stored in the session
-      image: req.file ? req.file.path : null, // Storing the file path if an image is uploaded
+      features: req.body.features,
+      addedBy: req.session.user._id,
+      image: req.file ? req.file.path : null,
     });
     await newCar.save();
     res.redirect("/cars");
