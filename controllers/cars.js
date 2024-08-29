@@ -6,7 +6,7 @@ const multer = require("multer");
 const path = require("path");
 const fs = require('fs');
 
-// Configure multer storage
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");
@@ -25,12 +25,12 @@ router.get("/", async (req, res) => {
   });
 });
 
-// GET /cars/new
+
 router.get("/new", ensureLoggedIn, (req, res) => {
   res.render("cars/new.ejs");
 });
 
-// POST /cars (Create a car functionality / action)
+
 router.post("/", upload.single("image"), async (req, res) => {
   try {
     const newCar = new Car({
@@ -51,7 +51,7 @@ router.post("/", upload.single("image"), async (req, res) => {
   }
 });
 
-// GET /cars/:id - Display details for a specific car
+
 router.get("/:id", async (req, res) => {
   try {
     const car = await Car.findById(req.params.id).populate('addedBy');
@@ -65,7 +65,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// DELETE /cars/:id - Delete a specific car
+
 router.delete("/:id", ensureLoggedIn, async (req, res) => {
   try {
     const car = await Car.findById(req.params.id);
@@ -73,7 +73,7 @@ router.delete("/:id", ensureLoggedIn, async (req, res) => {
       return res.status(404).send("Car not found");
     }
 
-    // Delete the associated image file if it exists
+    
     if (car.image) {
       fs.unlink(car.image, (err) => {
         if (err) {
@@ -85,12 +85,12 @@ router.delete("/:id", ensureLoggedIn, async (req, res) => {
     await Car.findByIdAndDelete(req.params.id);
     res.redirect("/cars");
   } catch (err) {
-    console.error("Error details:", err); // Log the error details
+    console.error("Error details:", err); 
     res.status(500).send("An error occurred while deleting the car");
   }
 });
 
-// GET /cars/:id/edit - Display the form to edit a specific car
+
 router.get("/:id/edit", ensureLoggedIn, async (req, res) => {
   try {
     const car = await Car.findById(req.params.id);
@@ -105,7 +105,7 @@ router.get("/:id/edit", ensureLoggedIn, async (req, res) => {
 });
 
 
-// PUT /cars/:id - Update a specific car
+
 router.put("/:id", ensureLoggedIn, upload.single("image"), async (req, res) => {
   try {
     const car = await Car.findById(req.params.id);
@@ -113,7 +113,7 @@ router.put("/:id", ensureLoggedIn, upload.single("image"), async (req, res) => {
       return res.status(404).send("Car not found");
     }
 
-    // Update the car details
+    
     car.make = req.body.make;
     car.model = req.body.model;
     car.year = req.body.year;
@@ -121,9 +121,9 @@ router.put("/:id", ensureLoggedIn, upload.single("image"), async (req, res) => {
     car.price = req.body.price;
     car.mileage = req.body.mileage;
 
-    // Handle image update if a new file is uploaded
+    
     if (req.file) {
-      // Delete the old image file if it exists
+      
       if (car.image) {
         fs.unlink(car.image, (err) => {
           if (err) {
@@ -131,10 +131,10 @@ router.put("/:id", ensureLoggedIn, upload.single("image"), async (req, res) => {
           }
         });
       }
-      car.image = req.file.path; // Update the image path
+      car.image = req.file.path; 
     }
 
-    await car.save(); // Save the updated car
+    await car.save(); 
     res.redirect(`/cars/${car._id}`);
   } catch (err) {
     console.log(err);

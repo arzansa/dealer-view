@@ -3,14 +3,14 @@ const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
-// All paths start with "/auth"
 
-// GET /auth/sign-up (show sign-up form)
+
+
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
 });
 
-// POST /auth/sign-up (create user)
+
 router.post('/sign-up', async (req, res) => {
   try {
     if (req.body.password !== req.body.confirmPassword) {
@@ -18,7 +18,7 @@ router.post('/sign-up', async (req, res) => {
     }
     req.body.password = bcrypt.hashSync(req.body.password, 6);
     const user = await User.create(req.body);
-    console.log('User created:', user); // Log the created user
+    console.log('User created:', user); 
     req.session.user = { _id: user._id };
     req.session.save((err) => {
       if (err) {
@@ -34,15 +34,15 @@ router.post('/sign-up', async (req, res) => {
   }
 });
 
-// POST /auth/login (login user)
+
 router.post('/login', async (req, res) => {
   try {
-    // Find the user by email (not username)
+    
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
       return res.redirect('/auth/login');
     }
-    // Compare the entered password with the hashed password in the database
+    
     if (bcrypt.compareSync(req.body.password, user.password)) {
       req.session.user = { _id: user._id };
       req.session.save();
@@ -56,12 +56,12 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// GET /auth/login (show login form)
+
 router.get('/login', async (req, res) => {
   res.render('auth/login.ejs');
 });
 
-// GET /auth/logout (logout)
+
 router.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/');
