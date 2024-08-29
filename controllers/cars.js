@@ -39,7 +39,7 @@ router.post("/", upload.single("image"), async (req, res) => {
       year: req.body.year,
       color: req.body.color,
       price: req.body.price,
-      features: req.body.features,
+      mileage: req.body.mileage,
       addedBy: req.session.user._id,
       image: req.file ? req.file.path : null,
     });
@@ -119,6 +119,7 @@ router.put("/:id", ensureLoggedIn, upload.single("image"), async (req, res) => {
     car.year = req.body.year;
     car.color = req.body.color;
     car.price = req.body.price;
+    car.mileage = req.body.mileage;
 
     // Handle image update if a new file is uploaded
     if (req.file) {

@@ -17,6 +17,9 @@
   <label for="price">Price:</label>
   <input type="text" name="price" id="price" value="<%= car.price %>" required />
 
+  <label for="mileage">Mileage:</label>
+  <input type="text" name="mileage" id="mileage" value="<%= car.mileage %>" required />
+
   <label for="image">Car Image:</label>
   <% if (car.image) { %>
     <img src="/<%= car.image %>" alt="<%= car.make %> <%= car.model %>" width="200"><br />

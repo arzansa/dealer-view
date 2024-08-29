@@ -1,12 +1,5 @@
 const mongoose = require("mongoose");
 
-const featureSchema = new mongoose.Schema({
-  text: {
-    type: String,
-    required: true,
-  }
-});
-
 const carSchema = new mongoose.Schema({
   make: {
     type: String,
@@ -28,7 +21,10 @@ const carSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  features: [featureSchema],
+  mileage: {
+    type: String,
+    required: true,
+  },
   addedBy: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,

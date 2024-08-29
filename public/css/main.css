@@ -73,11 +73,26 @@ form * {
   border: 1px solid var(--soft-olive);
 }
 
-/* Button Hover State */
-button:hover {
+/* General Button Styles */
+.btn {
+  background-color: var(--muted-blue);
+  color: var(--light-gray);
+  padding: 1vmin 2vmin;
+  border-radius: 0.5vmin;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer; /* Ensure the cursor changes on hover */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
   background-color: var(--slate-gray);
   color: var(--light-gray);
 }
+
+
+
 
 /* Remove borders around labels */
 label {
@@ -143,4 +158,121 @@ label {
 
 .inventory-item:hover {
   transform: translateY(-5px);
+}
+
+.car-view {
+  display: flex;
+  flex-direction: column;
+  gap: 2vmin;
+  padding: 2vmin;
+  align-items: center; /* Center the content horizontally */
+}
+
+.car-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vmin;
+  width: 100%; /* Take full width of the container */
+}
+
+.car-details img {
+  max-width: 100%;
+  border-radius: 1vmin;
+  object-fit: cover;
+  margin-bottom: 2vmin;
+  max-height: 300px; /* Set a maximum height for the car image */
+  width: auto; /* Ensure the aspect ratio is maintained */
+}
+
+.extended-details {
+  background-color: var(--light-gray);
+  border-radius: 1vmin;
+  padding: 2vmin 4vmin;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center; /* Center the text within the details section */
+}
+
+.extended-details h2 {
+  margin-bottom: 1.5vmin;
+}
+
+.extended-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto; /* Center the list within the container */
+  display: inline-block; /* Allow the list to be centered as a block */
+  text-align: left; /* Align the text within the list items to the left */
+}
+
+.extended-details li {
+  margin-bottom: 1vmin;
+  line-height: 1.6; /* Improve readability with line height */
+}
+
+.extended-details li strong {
+  font-weight: bold;
+}
+
+
+
+
+.car-actions {
+  display: flex;
+  justify-content: center;
+  gap: 2vmin;
+}
+
+.car-actions .btn {
+  background-color: var(--muted-blue);
+  color: var(--light-gray);
+  padding: 1vmin 2vmin;
+  border-radius: 0.5vmin;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.car-actions .btn-danger {
+  background-color: var(--slate-gray);
+}
+
+.car-actions .btn:hover {
+  background-color: var(--slate-gray);
+  color: var(--light-gray);
+}
+
+.contact-section {
+  margin-top: 2vmin;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-btn {
+  background-color: var(--muted-blue);
+  color: var(--light-gray);
+  padding: 1.5vmin 3vmin;
+  border-radius: 0.5vmin;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+  background-color: var(--slate-gray);
+  color: var(--light-gray);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2vmin;
+  text-decoration: none;
+  color: var(--muted-blue);
+  font-size: 1rem;
 }

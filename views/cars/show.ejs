@@ -1,46 +1,35 @@
 <%- include('../partials/header.ejs') %>
 
-<h1><%= car.make %> <%= car.model %> (<%= car.year %>)</h1>
-<p>Added By: <%= car.addedBy.email %></p>
+<main class="car-view">
+  <div class="car-details">
+    <img src="/<%= car.image %>" alt="<%= car.make %> <%= car.model %>" />
+    <div class="extended-details">
+      <h2>Vehicle Details:</h2>
+      <ul>
+        <li><strong>Make:</strong> <%= car.make %></li>
+        <li><strong>Model:</strong> <%= car.model %></li>
+        <li><strong>Year:</strong> <%= car.year %></li>
+        <li><strong>Color:</strong> <%= car.color %></li>
+        <li><strong>Price:</strong> <%= car.price %></li>
+        <li><strong>Mileage:</strong> <%= car.mileage %></li>
+      </ul>
+      <% if (user) { %>
+      <div class="car-actions">
+        <a href="/cars/<%= car._id %>/edit" class="btn">Edit Vehicle</a>
+        <form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn">Delete Vehicle</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <div class="contact-section">
+    <a href="/contact" class="btn contact-btn"
+      >Interested in Buying? Contact us!</a
+    >
+  </div>
+</main>
 
-<h2>Car Details:</h2>
-<ul>
-  <li>Make: <%= car.make %></li>
-  <li>Model: <%= car.model %></li>
-  <li>Year: <%= car.year %></li>
-  <li>Color: <%= car.color %></li>
-  <li>Price: <%= car.price %></li>
-</ul>
-
-<% if (car.features.length) { %>
-  <h2>Features:</h2>
-  <ul>
-    <% car.features.forEach((feature) => { %>
-    <li><%= feature.name %></li>
-    <% }); %>
-  </ul>
-<% } else { %>
-  <p>No features listed.</p>
-<% } %>
-
-<% if (car.image) { %>
-  <h2>Car Image:</h2>
-  <img src="/<%= car.image %>" alt="<%= car.make %> <%= car.model %>" width="400">
-<% } else { %>
-  <p>No image available for this car.</p>
-<% } %>
-
-<!-- Edit and Delete buttons -->
-<div style="display: flex; gap: 10px;">
-  <a href="/cars/<%= car._id %>/edit">
-    <button type="button">Edit Car</button>
-  </a>
-
-  <form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete Car</button>
-  </form>
-</div>
-
-<a href="/cars">Back to All Cars</a>
+<a href="/cars" class="back-link">Back to All Cars</a>
 
 <%- include('../partials/footer.ejs') %>
