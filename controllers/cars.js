@@ -54,7 +54,7 @@ router.post("/", upload.single("image"), async (req, res) => {
 // GET /cars/:id - Display details for a specific car
 router.get("/:id", async (req, res) => {
   try {
-    const car = await Car.findById(req.params.id).populate("addedBy"); // Populate addedBy if you need the username
+    const car = await Car.findById(req.params.id).populate('addedBy');
     if (!car) {
       return res.status(404).send("Car not found");
     }

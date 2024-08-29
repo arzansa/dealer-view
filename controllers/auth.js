@@ -18,13 +18,20 @@ router.post('/sign-up', async (req, res) => {
     }
     req.body.password = bcrypt.hashSync(req.body.password, 6);
     const user = await User.create(req.body);
-    // "remember" only the user's _id in the session object
+    console.log('User created:', user); // Log the created user
     req.session.user = { _id: user._id };
-    req.session.save();
+    req.session.save((err) => {
+      if (err) {
+        console.log('Session save error:', err);
+      } else {
+        console.log('Session saved successfully');
+      }
+      res.redirect('/');
+    });
   } catch (err) {
-    console.log(err);
+    console.log('Sign-up error:', err);
+    res.redirect('/auth/sign-up');
   }
-  res.redirect('/');
 });
 
 // POST /auth/login (login user)
