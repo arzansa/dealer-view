@@ -30,6 +30,17 @@
   <p>No image available for this car.</p>
 <% } %>
 
+<!-- Edit and Delete buttons -->
+<div style="display: flex; gap: 10px;">
+  <a href="/cars/<%= car._id %>/edit">
+    <button type="button">Edit Car</button>
+  </a>
+
+  <form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete Car</button>
+  </form>
+</div>
+
 <a href="/cars">Back to All Cars</a>
 
 <%- include('../partials/footer.ejs') %>

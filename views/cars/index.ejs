@@ -2,15 +2,14 @@
 
 <h1>Inventory</h1>
 <% if (cars.length) { %>
-    <ul>
       <% cars.forEach((car) => { %>
-      <li>
+      <div>
         <a href="/cars/<%= car._id %>">
-            <img src="/<%= car.image %>" alt="image of a <%= car.color %> <%= car.year %> <%= car.make %> <%= car.model %>">
+            <img src="/<%= car.image %>" alt="image of a <%= car.color %> <%= car.year %> <%= car.make %> <%= car.model %>" width="400">
+            <p><%= car.color %> <%= car.year %> <%= car.make %> <%= car.model %></p>
         </a>
-      </li>
+      </div>
       <% }) %>
-    </ul>
   <% } else { %>
     <p>You have not created any cars yet.</p>
   <% } %>

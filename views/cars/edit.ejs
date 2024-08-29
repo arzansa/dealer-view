@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Edit Car</h1>
+<form action="/cars/<%= car._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <label for="make">Make:</label>
+  <input type="text" name="make" id="make" value="<%= car.make %>" required />
+
+  <label for="model">Model:</label>
+  <input type="text" name="model" id="model" value="<%= car.model %>" required />
+
+  <label for="year">Year:</label>
+  <input type="text" name="year" id="year" value="<%= car.year %>" required />
+
+  <label for="color">Color:</label>
+  <input type="text" name="color" id="color" value="<%= car.color %>" required />
+
+  <label for="price">Price:</label>
+  <input type="text" name="price" id="price" value="<%= car.price %>" required />
+
+  <label for="image">Car Image:</label>
+  <% if (car.image) { %>
+    <img src="/<%= car.image %>" alt="<%= car.make %> <%= car.model %>" width="200"><br />
+  <% } %>
+  <input type="file" name="image" id="image" accept="image/*" />
+
+  <button type="submit">Update Car</button>
+</form>
+
+<a href="/cars">Cancel</a>
+
+<%- include('../partials/footer.ejs') %>
