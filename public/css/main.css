@@ -1,3 +1,12 @@
+/* Color Variables */
+:root {
+  --slate-gray: #4A4A4A;
+  --light-gray: #E0E0E0;
+  --muted-blue: #6C8FA2;
+  --warm-beige: #D3B8AE;
+  --soft-olive: #A6A58A;
+}
+
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
@@ -10,34 +19,39 @@ body {
   grid-template-rows: 8vh 1fr 4vh;
 }
 
+/* Navigation and Footer */
 nav, footer {
-  background-color:lightblue;
+  background-color: var(--muted-blue);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2vmin;
   font-size: 2vh;
-  color: lightslategray;
+  color: var(--light-gray);
 }
 
+/* Navigation Links */
 nav a {
   text-decoration: none;
-  color: slategray;
-  background-color: white;
+  color: var(--slate-gray);
+  background-color: var(--light-gray);
   padding: 1vmin;
   border-radius: 1vmin;
-  &:hover {
-    color: gray;
-    background-color: lightslategray;
-    color: white;
-  }
+  transition: background-color 0.3s, color 0.3s;
 }
 
+nav a:hover {
+  color: var(--light-gray);
+  background-color: var(--slate-gray);
+}
+
+/* Span Text in Navigation */
 nav span {
   font-size: 1.5vmin;
-  color: lightslategray;
+  color: var(--warm-beige);
 }
 
+/* Main Content Area */
 main {
   display: flex;
   flex-direction: column;
@@ -45,6 +59,7 @@ main {
   margin-top: 5vmin;
 }
 
+/* Form Styling */
 form {
   display: grid;
   grid-template-columns: auto auto;
@@ -55,9 +70,77 @@ form * {
   font-size: 2vmin;
   padding: 1vmin;
   border-radius: 1vmin;
+  border: 1px solid var(--soft-olive);
 }
 
+/* Button Hover State */
 button:hover {
-  background-color: lightslategray;
-  color: white;
+  background-color: var(--slate-gray);
+  color: var(--light-gray);
+}
+
+/* Remove borders around labels */
+label {
+  border: none; /* Ensure no border is applied */
+  background: none; /* Remove any background that might be applied */
+  padding: 0; /* Remove any padding that might give the appearance of a border */
+}
+
+/* General styles remain the same */
+
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2vmin;
+  padding: 2vmin;
+}
+
+.inventory-item {
+  background-color: var(--light-gray);
+  border-radius: 1vmin;
+  padding: 2vmin;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ensure each grid item is the same height */
+}
+
+.inventory-item img {
+  max-width: 100%;
+  border-radius: 0.5vmin;
+  margin-bottom: 1vmin;
+  object-fit: cover;
+}
+
+.inventory-item h2 {
+  font-size: 1.5rem;
+  color: var(--slate-gray);
+  margin-bottom: 1vmin;
+  flex-grow: 1; /* Ensures the heading grows to fill available space */
+  display: flex;
+  align-items: flex-end; /* Align text at the bottom of the available space */
+  justify-content: center;
+}
+
+.inventory-item a {
+  display: inline-block;
+  padding: 1vmin 2vmin;
+  background-color: var(--muted-blue);
+  color: var(--light-gray);
+  text-decoration: none;
+  border-radius: 0.5vmin;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: auto; /* Push the button to the bottom */
+}
+
+.inventory-item a:hover {
+  background-color: var(--slate-gray);
+  color: var(--light-gray);
+}
+
+.inventory-item:hover {
+  transform: translateY(-5px);
 }

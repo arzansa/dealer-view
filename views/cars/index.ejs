@@ -1,17 +1,16 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Inventory</h1>
-<% if (cars.length) { %>
-      <% cars.forEach((car) => { %>
-      <div>
-        <a href="/cars/<%= car._id %>">
-            <img src="/<%= car.image %>" alt="image of a <%= car.color %> <%= car.year %> <%= car.make %> <%= car.model %>" width="400">
-            <p><%= car.color %> <%= car.year %> <%= car.make %> <%= car.model %></p>
-        </a>
+<main>
+  <h1>Inventory</h1>
+  <div class="inventory-grid">
+    <% cars.forEach((car) => { %>
+      <div class="inventory-item">
+        <img src="/<%= car.image %>" alt="<%= car.make %> <%= car.model %>">
+        <h2><%= car.make %> <%= car.model %> (<%= car.year %>)</h2>
+        <a href="/cars/<%= car._id %>">Details</a>
       </div>
-      <% }) %>
-  <% } else { %>
-    <p>You have not created any cars yet.</p>
-  <% } %>
+    <% }) %>
+  </div>
+</main>
 
 <%- include('../partials/footer.ejs') %>
