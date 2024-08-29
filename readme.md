@@ -54,6 +54,10 @@
   - Canva
   - Trello
 
+# Planning
+
+[Trello Board](https://trello.com/b/PfbcnmKS/car-dealership-app)
+
 ## Live Demo
 
 Check out the app [here](https://dealer-view-85fdfb2d8eff.herokuapp.com/)!
