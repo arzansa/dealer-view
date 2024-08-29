@@ -1,7 +1,7 @@
 ![Picture of a Car Dealership Website](https://i.imgur.com/VOpnVQr.png)
 
 <h1>Dealer View</h1>
-<p>Dealer View is a proof-of-concept for a used car dealership website. The website features an authenticated user to update the inventory on the website with ease. This makes it easy for a dealer to update their inventory without much technical know-how.</p>
+<p>Dealer View is a proof-of-concept for a used car dealership website. The website allows an authenticated user to update the inventory on the website with ease. This makes it simple for a dealer to update their inventory without much technical know-how.</p>
 
 <h2>Getting Started</h2>
 
@@ -11,7 +11,7 @@
 
 <h2>Editing the Inventory</h2>
 
-![Picture of a form to add a vehicle](https://i.imgur.com/3Hffrat.png)
+![Picture of a form to add a vehicle](https://i.imgur.com/6Jp2YmE.png)
 
 <p>Clicking on the "Add New Vehicle" button will take the user to a form to add a new vehicle. It's as simple as adding in all of the info and pressing "Add Car".</p>
 
