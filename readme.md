@@ -5,7 +5,7 @@
 
 <h2>Getting Started</h2>
 
-![Picture of a Sign Up page](https://i.imgur.com/A1wn7ul.png)
+![Picture of a Sign Up page](https://i.imgur.com/0VqeXwD.png)
 
 <p>Anyone can view the inventory by clicking the corresponding button without needing to be logged in. A user can create an account by clicking the sign up button, and use the log in button in the future to access admin features.</p>
 
