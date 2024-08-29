@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
 // All paths start with "/auth"
 
@@ -37,24 +37,26 @@ router.post('/sign-up', async (req, res) => {
 // POST /auth/login (login user)
 router.post('/login', async (req, res) => {
   try {
-    const user = await User.findOne({username: req.body.username});
+    // Find the user by email (not username)
+    const user = await User.findOne({ email: req.body.email });
     if (!user) {
       return res.redirect('/auth/login');
     }
+    // Compare the entered password with the hashed password in the database
     if (bcrypt.compareSync(req.body.password, user.password)) {
       req.session.user = { _id: user._id };
       req.session.save();
-      // Perhaps update to some other functionality
       return res.redirect('/');
     } else {
       return res.redirect('/auth/login');
     }
   } catch (err) {
-    console.log(err);
+    console.log('Login error:', err);
     res.redirect('/');
   }
 });
 
+// GET /auth/login (show login form)
 router.get('/login', async (req, res) => {
   res.render('auth/login.ejs');
 });
