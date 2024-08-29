@@ -5,7 +5,7 @@
   <div class="inventory-grid">
     <% cars.forEach((car) => { %>
       <div class="inventory-item">
-        <img src="/<%= car.image %>" alt="<%= car.make %> <%= car.model %>">
+        <img src="/<%= car.image %>" alt="<%= car.year %> <%= car.color %> <%= car.make %> <%= car.model %>">
         <h2><%= car.make %> <%= car.model %> (<%= car.year %>)</h2>
         <a href="/cars/<%= car._id %>">Details</a>
       </div>
