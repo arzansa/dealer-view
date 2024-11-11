@@ -1,10 +1,10 @@
 
 :root {
-  --slate-gray: #4A4A4A;
-  --light-gray: #E0E0E0;
-  --muted-blue: #6C8FA2;
-  --warm-beige: #D3B8AE;
-  --soft-olive: #A6A58A;
+  --color-one: #fffffe;
+  --color-two: #fefddb;
+  --color-three: #183b4c;
+  --color-four: #D3B8AE;
+  --color-five: #183b4c;
 }
 
 * {
@@ -17,16 +17,17 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 8vh 1fr 4vh;
+  background-color: var(--color-two);
 }
 
 
 nav, footer {
-  background-color: var(--muted-blue);
+  background-color: var(--color-three);
   display: flex;
   align-items: center;
   padding: 0 2vmin;
   font-size: 2vh;
-  color: var(--light-gray);
+  color: var(--color-one);
 }
 
 nav {
@@ -40,22 +41,21 @@ footer {
 
 nav a {
   text-decoration: none;
-  color: var(--slate-gray);
-  background-color: var(--light-gray);
+  color: var(--color-three);
+  background-color: var(--color-two);
   padding: 1vmin;
   border-radius: 1vmin;
   transition: background-color 0.3s, color 0.3s;
 }
 
 nav a:hover {
-  color: var(--light-gray);
-  background-color: var(--slate-gray);
+  color: var(--color-four);
 }
 
 
 nav span {
   font-size: 1.5vmin;
-  color: var(--warm-beige);
+  color: var(--color-four);
 }
 
 
@@ -77,13 +77,13 @@ form * {
   font-size: 2vmin;
   padding: 1vmin;
   border-radius: 1vmin;
-  border: 1px solid var(--soft-olive);
+  border: 1px solid var(--color-five);
 }
 
 
 .btn {
-  background-color: var(--muted-blue);
-  color: var(--light-gray);
+  background-color: var(--color-three);
+  color: var(--color-two);
   padding: 1vmin 2vmin;
   border-radius: 0.5vmin;
   text-decoration: none;
@@ -94,8 +94,8 @@ form * {
 }
 
 .btn:hover {
-  background-color: var(--slate-gray);
-  color: var(--light-gray);
+  background-color: var(--color-one);
+  color: var(--color-two);
 }
 
 
@@ -118,7 +118,8 @@ label {
 }
 
 .inventory-item {
-  background-color: var(--light-gray);
+  background-color: var(--color-three);
+  color: var(--color-two);
   border-radius: 1vmin;
   padding: 2vmin;
   text-align: center;
@@ -139,7 +140,7 @@ label {
 
 .inventory-item h2 {
   font-size: 1.5rem;
-  color: var(--slate-gray);
+  color: var(--color-one);
   margin-bottom: 1vmin;
   flex-grow: 1; 
   display: flex;
@@ -150,8 +151,8 @@ label {
 .inventory-item a {
   display: inline-block;
   padding: 1vmin 2vmin;
-  background-color: var(--muted-blue);
-  color: var(--light-gray);
+  background-color: var(--color-two);
+  color: var(--color-three);
   text-decoration: none;
   border-radius: 0.5vmin;
   transition: background-color 0.3s, color 0.3s;
@@ -159,8 +160,7 @@ label {
 }
 
 .inventory-item a:hover {
-  background-color: var(--slate-gray);
-  color: var(--light-gray);
+  color: var(--color-four);
 }
 
 .inventory-item:hover {
@@ -193,7 +193,8 @@ label {
 }
 
 .extended-details {
-  background-color: var(--light-gray);
+  background-color: var(--color-three);
+  color: var(--color-one);
   border-radius: 1vmin;
   padding: 2vmin 4vmin;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -234,8 +235,8 @@ label {
 }
 
 .car-actions .btn {
-  background-color: var(--muted-blue);
-  color: var(--light-gray);
+  background-color: var(--color-two);
+  color: var(--color-three);
   padding: 1vmin 2vmin;
   border-radius: 0.5vmin;
   text-decoration: none;
@@ -245,18 +246,18 @@ label {
 }
 
 .car-actions .btn-danger {
-  background-color: var(--slate-gray);
+  background-color: var(--color-one);
 }
 
 .car-actions .btn:hover {
-  background-color: var(--slate-gray);
-  color: var(--light-gray);
+  color: var(--color-four);
 }
 
 .story-section {
   width: 100%;
   max-width: 800px;
-  background-color: var(--light-gray);
+  color: var(--color-one);
+  background-color: var(--color-three);
   border-radius: 1vmin;
   padding: 2vmin 4vmin;
   margin: 0 auto;
@@ -269,4 +270,8 @@ label {
 .logo {
   padding-bottom: 4vmin;
   width: 50vmin;
+}
+
+p > a {
+  color: var(--color-one);
 }
